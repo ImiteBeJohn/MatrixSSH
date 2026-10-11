@@ -33,6 +33,9 @@ private:
     // Class session status
     std::string SessionObjectStatus;
 
+    // The SSH conection object
+    ssh_session DevConnection;
+
 public:
 
     /* 
