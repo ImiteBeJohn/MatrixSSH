@@ -6,7 +6,7 @@ This is where SSH will connect to the host over the internet.
 
 #include "ssh_connection.h"
 
-SSH_Status ssh_session::ActivateConnection(){
+SSH_Status ssh_dev::ActivateConnection(){
 
     // libSSH will now initate the connection to the target host.
     

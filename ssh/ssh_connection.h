@@ -11,7 +11,7 @@ form one box to another (client to MatrixSSH).
 #include "../DataTypes.h"
 #pragma once
 
-class ssh_session{
+class ssh_dev{
 
 private:
 
@@ -38,7 +38,7 @@ public:
     /* 
     Default constructor: Dose noting at the moment for now at lease. 
     */
-    ssh_session();
+    ssh_dev();
 
     /*
     Copy constructor : sense this uses libssh with is a more C based thing,
@@ -46,12 +46,12 @@ public:
     pointer is used to prevent issues
     Thanks CMPS 122. 
     */
-    ssh_session(const ssh_session& PointerNew);
+    ssh_dev(const ssh_dev& PointerNew);
 
     /*
     Deconstructor witch dose nothing at the moment
     */
-    ~ssh_session();
+    ~ssh_dev();
 
     /*
     PrimeConnection() : set up an SSH connection with a username, password, 

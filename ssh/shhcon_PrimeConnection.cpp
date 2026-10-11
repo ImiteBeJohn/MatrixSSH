@@ -7,7 +7,7 @@ for later use once the connection is activated.
 
 #include "ssh_connection.h"
 
-void ssh_session::PrimeConnection(SSH_ConnectionData ConnectionInit, std::string NameID){
+void ssh_dev::PrimeConnection(SSH_ConnectionData ConnectionInit, std::string NameID){
 
     // Set username
     this->SessionUserName = ConnectionInit.SSH_UserName;
