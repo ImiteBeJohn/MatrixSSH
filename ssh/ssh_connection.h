@@ -1,0 +1,78 @@
+/*
+ssh_connection : is a class that is built for MatrixSSH specifically. 
+
+ssh_connection is built around libssh libary that handles the SSH loweer level data
+form one box to another (client to MatrixSSH).
+*/
+
+#include <iostream>
+#include <string>
+#include <libssh/libssh.h>
+#include "../DataTypes.h"
+#pragma once
+
+class ssh_session{
+
+private:
+
+    // Connection Name
+    std::string SessionName;
+
+    // Username
+    std::string SessionUserName;
+
+    // HostName
+    std::string SessionHostName;
+
+    // SSH connection status : from SSH itself
+    std::string SessionStatusResults;
+
+    // Class session status
+    std::string SessionObjectStatus;
+
+public:
+
+    /* 
+    Default constructor: Dose noting at the moment for now at lease. 
+    */
+    ssh_session();
+
+    /*
+    Deconstructor witch dose nothing at the moment
+    */
+    ~ssh_session();
+
+    /*
+    PrimeConnection() : set up an SSH connection with a username, password, 
+    and so on before the connection is started. 
+
+    This takes a connection data struct as input and returns noting.
+    */
+    void PrimeConnection(SSH_ConnectionData ConnectionInit);
+
+    /*
+    ActivateConnection(): Will have make the connection to the host itself. 
+
+    This takes notinh as a input and reutns a SSH_CodeReulst for program use
+    */
+    SSH_Status ActivateConnection();
+
+    /*
+    Dissconect() : ONLY TERMINATES the connection. Not the object itself. 
+    
+    This takes no input but reutns SSH status.
+    */
+    SSH_Status Disconnect();
+
+    /*
+    AlterConnection() : This changes existing connection when needed.
+    This returns a SSH_Status and takes SSH_ConnectionData as input.
+    */
+    SSH_Status AlterConnection(SSH_ConnectionData ConnectionAlter);
+
+    /*Test Connection : this is a simple "dose a means to communiate exist.
+    
+    retursn a SSH status*/
+    SSH_Status TestConnection();
+    
+};
