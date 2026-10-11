@@ -58,3 +58,16 @@ struct SSH_Status{
     int SSH_CodeResult;
 
 };
+
+/*
+MessageData : is used to transfer data from one entity to antother. 
+*/
+struct MessageData{
+
+    // Data as a string
+    std::string Data;
+
+    // Entity name
+    std::string EntityID;
+
+};

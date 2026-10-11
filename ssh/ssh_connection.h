@@ -24,6 +24,9 @@ private:
     // HostName
     std::string SessionHostName;
 
+    // Port number
+    int SessionPortNumber;
+
     // SSH connection status : from SSH itself
     std::string SessionStatusResults;
 
@@ -38,17 +41,26 @@ public:
     ssh_session();
 
     /*
+    Copy constructor : sense this uses libssh with is a more C based thing,
+    it best assumed that it will be dealing with pointers. As such a copy 
+    pointer is used to prevent issues
+    Thanks CMPS 122. 
+    */
+    ssh_session(const ssh_session& PointerNew);
+
+    /*
     Deconstructor witch dose nothing at the moment
     */
     ~ssh_session();
 
     /*
     PrimeConnection() : set up an SSH connection with a username, password, 
-    and so on before the connection is started. 
+    and so on before the connection is started. And a string name for
+    naming the connection itself.
 
     This takes a connection data struct as input and returns noting.
     */
-    void PrimeConnection(SSH_ConnectionData ConnectionInit);
+    void PrimeConnection(SSH_ConnectionData ConnectionInit, std::string NameID);
 
     /*
     ActivateConnection(): Will have make the connection to the host itself. 
@@ -74,5 +86,10 @@ public:
     
     retursn a SSH status*/
     SSH_Status TestConnection();
+
+    /*Deliver: takes in info data and tell libssh to send data
+    This takes in a MessageData struct as input and returns a SSH_Status 
+    for verboseity*/
+    SSH_Status Deliver(MessageData DataToSend);
     
 };
