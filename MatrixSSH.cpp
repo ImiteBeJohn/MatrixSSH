@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ssh/ssh_connection.h"
 
 int main(){
 

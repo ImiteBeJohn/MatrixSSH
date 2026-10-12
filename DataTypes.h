@@ -57,6 +57,9 @@ struct SSH_Status{
     // C++ stuff that is of the old C data tytes and what not.
     int SSH_CodeResult;
 
+    // Tech message is from LibSSH itself and composed to C-String messages
+    std::string TechMessages; 
+
 };
 
 /*
@@ -69,5 +72,9 @@ struct MessageData{
 
     // Entity name
     std::string EntityID;
+
+    // LocalCommand is to tell a component is meant to 
+    // Tell the class function what to do
+    std::string LocalCommand;
 
 };

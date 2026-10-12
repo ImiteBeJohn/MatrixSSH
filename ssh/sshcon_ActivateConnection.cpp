@@ -25,7 +25,7 @@ SSH_Status ssh_dev::ActivateConnection(){
 
         // Set the status message
         SSH_Status ReturnStatus;
-        ReturnStatus.SSH_Message = "SSH connection failed to be created";
+        ReturnStatus.SSH_Message = "libssh did not prperly setup the connection";
         ReturnStatus.SSH_CodeResult = -1;
 
         // Return and exit here
@@ -40,6 +40,32 @@ SSH_Status ssh_dev::ActivateConnection(){
         ssh_options_set(this->DevConnection, SSH_OPTIONS_USER, this->SessionUserName.c_str());
         ssh_options_set(this->DevConnection, SSH_OPTIONS_LOG_VERBOSITY, &verbose);
         ssh_options_set(this->DevConnection, SSH_OPTIONS_PORT, &port);
+
+        // This then moves to the next step where the program then will 
+        // make the connection
+        
+        // Variable for erro delaing
+        int libsshReturn;
+
+        // Try to make the connection
+        libsshReturn = ssh_connect(this->DevConnection);
+
+        // If it failed
+        if(libsshReturn != SSH_OK){
+
+            // Failure return 
+            SSH_Status FailToConnect;
+
+            // ge the error from libssh
+            FailToConnect.TechMessages = ssh_get_error(DevConnection);
+
+            // Defined message from this class
+            FailToConnect.SSH_Message = "There was a failure in calling ssh_connect()";
+
+            // Return with failure
+            return FailToConnect;
+            
+        }
     }
 
     // This concudes the connection part.     

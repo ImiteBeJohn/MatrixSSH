@@ -15,16 +15,17 @@ class ssh_dev{
 
 private:
 
-    // Connection Name
+    // Connection Name: the name of the object name itself that is 
+    // used by the class to manage ssh objects.
     std::string SessionName;
 
-    // Username
+    // Username of the SSH connection
     std::string SessionUserName;
 
-    // HostName
+    // HostName or IP of the connection
     std::string SessionHostName;
 
-    // Port number
+    // Port number of SSH
     int SessionPortNumber;
 
     // SSH connection status : from SSH itself
@@ -35,6 +36,9 @@ private:
 
     // The SSH conection object
     ssh_session DevConnection;
+
+    // SSH channel used for data communication
+    ssh_channel DevChannelConn;
 
 public:
 
@@ -88,11 +92,12 @@ public:
     /*Test Connection : this is a simple "dose a means to communiate exist.
     
     retursn a SSH status*/
-    SSH_Status TestConnection();
+    SSH_Status TestConnection(MessageData TestCommand);
 
-    /*Deliver: takes in info data and tell libssh to send data
-    This takes in a MessageData struct as input and returns a SSH_Status 
-    for verboseity*/
-    SSH_Status Deliver(MessageData DataToSend);
+    /*Transerf: This is the communication data funcion that when called
+    will push and get data from a connection
+    
+    This takes and returns MessageData types*/
+    MessageData Tranfer(MessageData DataToSend);
     
 };
