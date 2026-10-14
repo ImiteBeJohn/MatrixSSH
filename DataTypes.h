@@ -58,7 +58,10 @@ struct SSH_Status{
     int SSH_CodeResult;
 
     // Tech message is from LibSSH itself and composed to C-String messages
-    std::string TechMessages; 
+    std::string TechMessages;
+
+    // Priority
+    std::string prioprityMessage;
 
 };
 
