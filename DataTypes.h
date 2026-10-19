@@ -80,4 +80,22 @@ struct MessageData{
     // Tell the class function what to do
     std::string LocalCommand;
 
+    // Fluff data is used to transfer additional data
+    std::string FluffData;
+};
+
+/*
+WebStatus: is used for exchaning web status for the web system that is in use
+
+*/
+struct WebStatus{
+    
+    // Generic string status
+    std::string ErrorStringCode;
+
+    // In depth message
+    std::string ExtraMsg;
+
+    // Number error that is thrown around depedning on libhttp
+    int ErrorNumber;
 };

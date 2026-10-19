@@ -5,3 +5,15 @@ This is merly for experimentation before going into the main program
 / server/
 
 */
+#include <iostream>
+#include <string>
+#include "DataTypes.h"
+#include "web/websystem/web_system.h"
+#include "ssh/ssh_connection.h"
+
+int main(){
+
+    
+
+    return 0;
+}
