@@ -99,3 +99,51 @@ struct WebStatus{
     // Number error that is thrown around depedning on libhttp
     int ErrorNumber;
 };
+
+/*
+GeneralMessage: is a generic message type that is more "neutral" to the server
+in a sense that this can "transport" nearly anything.
+It's just full of types that is pass around as a means of data transfer. 
+*/
+struct GeneralData{
+
+    // Message title should be straid forward but is generally
+    // things like error, data, status, and so on
+    std::string MessageTitle;
+
+    // MeSrc is where the message soruce came from
+    std::string meSrc;
+
+    // DestSrc: Destonation of the message
+    std::string DestSrc;
+
+    // String data that uses standard string data
+    std::string StringDataInfo;
+
+    // Intiger data into
+    int IntDataInfo;
+
+    // MicroArr is a int array of 16
+    int IntMicroArr [16];
+
+    // MicroCstr is a char array of 16. Not dynamic nor should it be
+    char MicroCstr [16];
+
+    // BoolToglle is just a bollean for use
+    bool Toggle;
+
+    // HexList is an int array that is purpose built for hex values
+    // Stores 16 bits
+    int HexList [16];
+
+    // Is parted: if more than a certain amount of values is needed 
+    // meaning that if this is ture, then the full message is devided into parts
+    bool Parted;
+
+    // If parted is ture, then the array below is the block out of variable
+    // Like lik a fraction where [2][5] is 2/5 or 2 out of the 5 needed
+    // blocks
+    // Fragment count
+    int FragmentCount [2];
+
+};

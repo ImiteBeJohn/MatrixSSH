@@ -35,7 +35,21 @@ public:
     /*
     Prime_server() : sets up the web server such as port, IP, and so on.
 
-    This takes in Data messages as input and 
+    This takes in General Data as input and uses IntMicroArr for the IPv4
+    address and IntDataInfo for the port number
+    
+    returns webstatus for processing
     */
+    WebStatus Prime_Server(GeneralData ConfigData);
+
+    /*
+    Activate() : causes the class to open and present a web interface that can be
+    connected to vita the web
+    
+    Takes no input and returns WebStatus
+    */
+    WebStatus Activate();
+
+
 
 };
