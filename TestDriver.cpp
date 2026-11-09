@@ -13,9 +13,14 @@ This is merly for experimentation before going into the main program
 
 int main(){
 
-    // First do the web system
-    WebEngine MainEngine;
+    // Print start of test
+    std::cout << "MatrixSSH Test driver" << std::endl;
 
+    // Make test SSH 
+    std::cout << "New SSH connection" << std::endl;
+    ssh_dev TestConnection;
+
+    
 
     return 0;
 }

@@ -11,6 +11,7 @@ ssh_dev::ssh_dev(){
 
     // So there is a copy pointer thing that is mean to prevent a class issue thing
     // I'mm still looking into it at the moment. 
+    
 }
 
 // Copy constructor version

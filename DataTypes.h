@@ -9,6 +9,7 @@ some other component of MatrixSSH.
 #include <iostream>
 #include <string>
 #include <vector>
+#pragma once
 
 // Thest struct that is used within the program. 
 struct test{
@@ -40,6 +41,12 @@ struct SSH_ConnectionData{
 
     // Port Number if needed
     int PortNumber;
+
+    // Host IP / name if needed
+    std::string HostNameAddress;
+
+    // Key path: the file for the secure key that libssh uses
+    std::string KeyPathDir;
     
 };
 
@@ -63,6 +70,16 @@ struct SSH_Status{
     // Priority
     std::string prioprityMessage;
 
+    // SSH connection name: that is the user defined name
+    std::string AssingedConnectionName;
+
+    // Connection group, like say web servers
+    std::string ConnectionGroup;
+
+
+    // So libssh uses a file that contains the key for 
+    // encryption part
+    std::string KeyFilePath;
 };
 
 /*
@@ -146,4 +163,30 @@ struct GeneralData{
     // Fragment count
     int FragmentCount [2];
 
+};
+
+/*
+ConnectBlob contains connection infomation for a SSH connection.
+Rigth now its used for the "name" (host of connection), 
+Group for the cluster of servers that the host belong to,
+"connection" that contains 'xyz@abc.tld' for making the connection,
+Password that is the password in plain text, and so on
+
+This is primarly passed from the database to the SSH system 
+for making the connections. (or used that way that is)
+*/
+struct ConnectionBlob {
+
+    // ConnectionName
+    std::string ConnectionName;
+
+    // Connection Group
+    std::string ConnectionGroup;
+
+    // Target (ie xyz@abc)
+    std::string Target;
+
+    // Password
+    std::string ConnectionPassword;
+    
 };

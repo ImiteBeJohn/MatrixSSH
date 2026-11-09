@@ -1,10 +1,15 @@
 #include <iostream>
 #include "ssh/ssh_connection.h"
+#include "web/websystem/web_system.h"
+#include "storagebase/connect/hoststorage.h"
+#include "DataTypes.h"
+#include "functions/daeom_init.h"
 
-int main(){
 
-  std::cout << "This is a test" << std::endl;
 
-  return 0;
+int main(int argc, char* argv[]){
+
+  // 
+
 
 }

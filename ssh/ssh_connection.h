@@ -40,6 +40,8 @@ private:
     // SSH channel used for data communication
     ssh_channel DevChannelConn;
 
+    // This is for the SSH key 
+
 public:
 
     /* 
@@ -97,7 +99,7 @@ public:
     /*Transerf: This is the communication data funcion that when called
     will push and get data from a connection
     
-    This takes and returns MessageData types*/
-    MessageData Tranfer(MessageData DataToSend);
+    This takes General Data and returns MessageData types*/
+    MessageData Tranfer(GeneralData DataToSend);
     
 };
