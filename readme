@@ -3,6 +3,7 @@ Matrix SSH is dependent on three primary libraries
 *libhttp-cpp
 *sqlute3-devel
 *gcc
+*g++
 
 Witch need to be instealled onto a Linux system. These depend on the disto
 so you will need to consult your package managers sources to aquire the pacakages
