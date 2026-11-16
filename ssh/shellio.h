@@ -60,8 +60,8 @@ class ShellCon{
     a channel is a means of communicate. This can be X-display, files, or text aka
     bash or command shell.
     */
-    ssh_session RootSession;
-    ssh_channel RootChannel;
+    ssh_session RootSession = nullptr;
+    ssh_channel RootChannel = nullptr;
     ssh_key ConnectionKey = nullptr;
 
     public:
@@ -86,6 +86,8 @@ class ShellCon{
     /*DataDelivery() is where data comes in and out of the program
     
     This take in a general data struct for input and reutns one as well
+
+    This now uses a reguar C++ string due to crashes
     */
     GeneralData DataDelivery(GeneralData DataIn);
     

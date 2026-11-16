@@ -11,6 +11,7 @@ GeneralData ShellCon::DataDelivery(GeneralData DataIn){
     GeneralData RetrunData;
 
     // This is the general libssh stuff here
+    RootSession = ssh_new();
 
     // Firs the session
     if(ssh_channel_new(RootSession) != SSH_OK){
@@ -57,7 +58,6 @@ GeneralData ShellCon::DataDelivery(GeneralData DataIn){
 
     // Deliver the command
     if(ssh_channel_request_exec(RootChannel, DataIn.StringDataInfo.c_str()) != SSH_OK){
-        
         // Return that the channel creation failed
         RetrunData.MessageTitle = "Error";
         RetrunData.StringDataInfo = "Command execution failed";
@@ -67,7 +67,7 @@ GeneralData ShellCon::DataDelivery(GeneralData DataIn){
     }
 
     // If everything is successful, then we get what the server gain from us
-    char buffer[8192];
+    char buffer[4096];
     int numberOfBytes = ssh_channel_read(RootChannel, buffer, sizeof(buffer), 0);
 
     // Loop to read all and store to for return data

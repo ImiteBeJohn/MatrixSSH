@@ -1,0 +1,1 @@
+g++ TestDriver.cpp ssh/shio_*.cpp web/websystem/*.cpp -o test.bin -lssh

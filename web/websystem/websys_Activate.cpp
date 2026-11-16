@@ -12,5 +12,12 @@ WebStatus WebEngine::Activate(){
     // Return object for the activation status
     WebStatus HTTPEngineResult;
 
-    // 
+    // Set the folder directory for the
+    // web page the server uses
+    EngineSvr.set_mount_point("/", "./web/websystem/webpage/");
+
+    // Listen for connections
+    EngineSvr.listen("0.0.0.0", 9090);
+
+
 }

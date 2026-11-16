@@ -47,6 +47,17 @@ struct SSH_ConnectionData{
 
     // Key path: the file for the secure key that libssh uses
     std::string KeyPathDir;
+
+    // SSH connection name: that is the user defined name
+    std::string AssingedConnectionName;
+
+    // Connection group, like say web servers
+    std::string ConnectionGroup;
+
+
+    // So libssh uses a file that contains the key for 
+    // encryption part
+    std::string KeyFilePath;
     
 };
 
@@ -69,17 +80,6 @@ struct SSH_Status{
 
     // Priority
     std::string prioprityMessage;
-
-    // SSH connection name: that is the user defined name
-    std::string AssingedConnectionName;
-
-    // Connection group, like say web servers
-    std::string ConnectionGroup;
-
-
-    // So libssh uses a file that contains the key for 
-    // encryption part
-    std::string KeyFilePath;
 };
 
 /*

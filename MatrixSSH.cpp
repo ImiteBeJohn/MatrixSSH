@@ -9,7 +9,8 @@
 
 int main(int argc, char* argv[]){
 
-  // 
+  // Fork as a daemon
+  
 
 
 }
