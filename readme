@@ -1,0 +1,16 @@
+Matrix SSH is dependent on three primary libraries
+*libssh-devel
+*libhttp-cpp
+*sqlute3-devel
+*gcc
+
+Witch need to be instealled onto a Linux system. These depend on the disto
+so you will need to consult your package managers sources to aquire the pacakages
+needed.
+
+The process to compile is simple as all things relating to compiling MatrixSSH
+is stored in MatrixSSHCompilerScrip.sh and should run on a Linux system.
+
+The inital pacakge was built and test compiled on Fedora 44 (Fedora 44 KDE edition
+to be percise) and tested on Rock Linux 10 (Dekstop is the KDE version but that
+should not have an effect on running matirx SSH on Rocky Linux)
